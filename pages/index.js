@@ -1,7 +1,3 @@
-import Head from "next/head";
-import Image from "next/image";
-import { Inter } from "next/font/google";
-import styles from "@/styles/Home.module.css";
 import { useSession } from "next-auth/react";
 import { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/router";
@@ -19,21 +15,18 @@ import { app } from "@/Config/FirebaseConfig";
 import { ParentFolderIdContext } from "@/context/ParentFolderIdContext";
 import { UserInfoContext } from "@/context/UserInfoContext";
 
-const inter = Inter({ subsets: ["latin"] });
-
 export default function Home() {
   const { data: session } = useSession();
   const router = useRouter();
+
   const db = getFirestore(app);
 
   const [folderList, setFolderList] = useState([]);
   const [fileList, setFileList] = useState();
-
   const [searchBar, setSearchBar] = useState("");
   const [fileListSearch, setFileListSearch] = useState([]);
 
-  const {userInfo, setUserInfo} = useContext(UserInfoContext);
-
+  const { userInfo, setUserInfo } = useContext(UserInfoContext);
   const { ParentFolderId, setParentFolderId } = useContext(
     ParentFolderIdContext
   );
@@ -85,34 +78,29 @@ export default function Home() {
   };
 
   useEffect(() => {
-  
     setFileListSearch([]);
 
     userInfo.forEach((doc) => {
-      if(doc.data()["name"].toUpperCase().includes(searchBar.toUpperCase())){
-       
+      if (doc.data()["name"].toUpperCase().includes(searchBar.toUpperCase())) {
         setFileListSearch((fileListSearch) => [...fileListSearch, doc.data()]);
       }
-      
-    })
-  }, [searchBar])
+    });
+  }, [searchBar]);
 
   return (
     <>
       <div className="p-5">
-        <SearchBar searchBar={searchBar} setSearchBar={setSearchBar}/>
+        <SearchBar searchBar={searchBar} setSearchBar={setSearchBar} />
         {searchBar == "" ? (
-        <>
-          <FolderList folderList={folderList} />
-          <FileList fileList={fileList} />
-        </>
-      ) : 
-        
-        <>
-        <FileList fileList={fileListSearch} />
-        </>
-      }
-        
+          <>
+            <FolderList folderList={folderList} />
+            <FileList fileList={fileList} />
+          </>
+        ) : (
+          <>
+            <FileList fileList={fileListSearch} />
+          </>
+        )}
       </div>
     </>
   );

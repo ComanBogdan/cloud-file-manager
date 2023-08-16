@@ -2,13 +2,11 @@ import { app } from "@/Config/FirebaseConfig";
 import FileList from "@/components/File/FileList";
 import FolderList from "@/components/Folder/FolderList";
 import SearchBar from "@/components/SearchBar";
-import UserInfo from "@/components/Storage/UserInfo";
 import { ParentFolderIdContext } from "@/context/ParentFolderIdContext";
 import { ShowToastContext } from "@/context/ShowToastContext";
 import { UserInfoContext } from "@/context/UserInfoContext";
 import {
   collection,
-  doc,
   getDocs,
   getFirestore,
   query,
@@ -21,20 +19,21 @@ import React, { useContext, useEffect, useState } from "react";
 const FolderDetails = () => {
   const router = useRouter();
   const { name, id } = router.query;
+
   const { parentFolderId, setParentFolderId } = useContext(
     ParentFolderIdContext
   );
-  const { data: session } = useSession();
   const { showToastMsg, setShowToastMsg } = useContext(ShowToastContext);
-
   const {userInfo, setUserInfo} = useContext(UserInfoContext);
 
-  const [searchBar, setSearchBar] = useState("");
+  const { data: session } = useSession();
 
-  const db = getFirestore(app);
+  const [searchBar, setSearchBar] = useState("");
   const [folderList, setFolderList] = useState([]);
   const [fileList, setFileList] = useState([]);
   const [fileListSearch, setFileListSearch] = useState([]);
+
+  const db = getFirestore(app);
 
   useEffect(() => {
     setParentFolderId(id);
@@ -51,16 +50,12 @@ const FolderDetails = () => {
       where("createBy", "==", session.user.email),
       where("parentFolderId", "==", id)
     );
-
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
       // doc.data() is never undefined for query doc snapshots
       //console.log(doc.id, " => ", doc.data());
-
       setFolderList((folderList) => [...folderList, doc.data()]);
     });
-
-    console.log(folderList);
   };
 
   const getFileList = async () => {
@@ -80,22 +75,15 @@ const FolderDetails = () => {
   };
 
   useEffect(() => {
-  
     setFileListSearch([]);
 
     userInfo.forEach((doc) => {
       if(doc.data()["name"].toUpperCase().includes(searchBar.toUpperCase())){
-       
         setFileListSearch((fileListSearch) => [...fileListSearch, doc.data()]);
       }
-      
     })
   }, [searchBar])
   
-
-  console.log(searchBar);
-  console.log(fileList)
-
   return (
     <div className="p-5">
       <SearchBar searchBar={searchBar} setSearchBar={setSearchBar} />

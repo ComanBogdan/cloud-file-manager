@@ -49,10 +49,6 @@ const FolderList = ({ folderList, folderName, folderId, back }) => {
   const db = getFirestore(app);
 
   const folderDelete = async () => {
-    console.log("delete");
-    console.log(folderName);
-    console.log(folderId);
-
     await deleteDoc(doc(db, "Folders", folderId.toString())).then((resp) => {
       router.back();
       console.log("sters");

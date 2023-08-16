@@ -2,7 +2,7 @@ import React from "react";
 import FileItem from "./FileItem";
 
 const FileList = ({ fileList }) => {
-  console.log(fileList);
+  //Mock data
   // const fileList = [
   //   {
   //     id: 1,

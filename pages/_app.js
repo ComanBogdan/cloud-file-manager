@@ -1,4 +1,3 @@
-import CreateFolderModal from "@/components/Folder/CreateFolderModal";
 import SideNavBar from "@/components/SideNavBar";
 import Toast from "@/components/Toast";
 import { ShowToastContext } from "../context/ShowToastContext";

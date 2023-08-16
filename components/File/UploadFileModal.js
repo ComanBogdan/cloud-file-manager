@@ -16,7 +16,6 @@ const UploadFileModal = ({ closeModal }) => {
 
   const docId = Date.now();
   const db = getFirestore(app);
-
   const storage = getStorage(app);
 
   //upload file to database

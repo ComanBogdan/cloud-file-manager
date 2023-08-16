@@ -9,11 +9,9 @@ const SideNavBar = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const router = useRouter();
 
-
   const closeModal = () => {
     window.my_modal_4.close()
   }
-  
 
   return (
     <div className="w-[300px] bg-white h-screen sticky top-0 z-10 shadow-blue-300 shadow-md p-5">

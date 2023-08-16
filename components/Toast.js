@@ -1,4 +1,3 @@
-
 import { ShowToastContext } from "@/context/ShowToastContext";
 import React, { useContext, useEffect } from "react";
 import { useRouter } from 'next/router';
@@ -12,7 +11,6 @@ const Toast = ({msg}) => {
             setShowToastMsg(null);
             router.reload()
         }, 1000)
-
     }, [showToastMsg])
 
   return (

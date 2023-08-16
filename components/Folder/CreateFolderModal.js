@@ -14,7 +14,6 @@ const CreateFolderModal = () => {
   const {data:session}=useSession();
 
   const{parentFolderId, setParentFolderId}=useContext(ParentFolderIdContext)
-
   const {showToastMsg, setShowToastMsg}=useContext(ShowToastContext);
 
   const db = getFirestore(app)
