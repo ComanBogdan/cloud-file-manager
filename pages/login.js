@@ -2,7 +2,7 @@ import { signIn, useSession } from 'next-auth/react'
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react'
 
-const login = () => {
+const Login = () => {
     const {data:session}=useSession();
     const router=useRouter();
 
@@ -28,4 +28,4 @@ const login = () => {
   )
 }
 
-export default login
+export default Login
