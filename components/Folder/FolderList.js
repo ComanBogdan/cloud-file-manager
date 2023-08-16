@@ -121,12 +121,12 @@ const FolderList = ({ folderList, folderName, folderId, back }) => {
       {folderList?.length > 0 ? (
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 mt-3 gap-4 ">
           {folderList.map((item, index) => (
-            <div
+            <div key={index + item.id}
               onClick={() => {
                 onFolderClick(item, index);
               }}
             >
-              <FolderItem key={index + item.id} folder={item} />
+              <FolderItem  folder={item} />
             </div>
           ))}
         </div>

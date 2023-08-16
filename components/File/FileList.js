@@ -47,8 +47,8 @@ const FileList = ({ fileList }) => {
       </div>
       {fileList
         ? fileList.map((item, index) => (
-            <div>
-              <FileItem file={item} key={index} />
+            <div key={"file_" + index}>
+              <FileItem file={item}  />
             </div>
           ))
         : null}

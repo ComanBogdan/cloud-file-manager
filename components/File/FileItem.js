@@ -27,7 +27,7 @@ const FileItem = ({ file, key,  }) => {
     cursor-pointer hover:bg-gray-100 p-3 rounded-md"
     >
       <div className="flex gap-2 items-center">
-        <Image src={image} alt="file-icon" width={26} height={20} on />
+        <Image src={image} alt="file-icon" width={26} height={20} />
         <h2 onClick={() => window.open(file.imageUrl)} className="text-[15px]">{file.name}</h2>
       </div>
 
