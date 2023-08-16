@@ -58,13 +58,6 @@ const StorageInfo = () => {
       }
       }, [session])
 
-
-      console.log("user info context")
-      console.log(userInfo);
-
-      console.log(totalSizePercent);
-    
-
   return (
     <div className='mt-7'>
         <div>

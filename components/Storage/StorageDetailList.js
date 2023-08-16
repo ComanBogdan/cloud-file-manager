@@ -109,7 +109,7 @@ const StorageDetailList = () => {
     <div>
       {storageList ? (
         storageList.map((item, index) => (
-          <StorageDetailItem item={item} index={index} />
+          <StorageDetailItem key={"Storage_Item_" + index} item={item} index={index} />
         ))
       ) : (
         <div>loading</div>

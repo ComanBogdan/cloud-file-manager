@@ -64,7 +64,7 @@ const SideNavBar = () => {
       <div>
         {menu.list.map((item, index) => {
           return (
-            <div>
+            <div key={"menu_item_" + index}>
               <h2
                 onClick={() => {
                   if(item.id == 1){

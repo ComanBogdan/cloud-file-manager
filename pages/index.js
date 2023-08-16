@@ -37,7 +37,6 @@ export default function Home() {
     if (!session) {
       router.push("/login");
     } else {
-      console.log("user session", session);
       getFolderList();
       getFileList();
     }
@@ -61,7 +60,6 @@ export default function Home() {
   };
 
   const getFileList = async () => {
-    console.log("fileList");
     setFileList([]);
     const q = query(
       collection(db, "Files"),
