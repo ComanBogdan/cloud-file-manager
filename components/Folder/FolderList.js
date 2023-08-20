@@ -82,7 +82,7 @@ const FolderList = ({ folderList, folderName, folderId, back }) => {
           <span className="w-full">
             <Image
               className="w-12 h-12 mr-2 float-right"
-              src="/folder.png"
+              src="/folderIcon.png"
               alt="folder"
               width={40}
               height={40}
