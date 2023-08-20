@@ -16,7 +16,7 @@ const SideNavBar = () => {
   return (
     <div className="w-[300px] bg-white h-screen sticky top-0 z-10 shadow-blue-300 shadow-md p-5">
       <div className="flex justify-center hover:scale-105 transition-all">
-        <Image src="/logo.png" alt="logo" width={150} height={60} />
+        <Image src="/Logo.png" alt="logo" width={150} height={60} />
       </div>
 
       <button className=" text-white justify-center text-[13px] flex gap-2 items-center bg-blue-500 p-2 rounded-md px-3 mt-5 w-full 
