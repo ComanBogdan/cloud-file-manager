@@ -1,5 +1,11 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Cloud File Manager
+[Demo Link](https://cloud-file-manager-3sq9.vercel.app)
+- My personal project for learning 
+- React | JavaScript | Tailwind | Firebase | NextAuth
 
+
+
+  
 ## Getting Started
 
 First, run the development server:
